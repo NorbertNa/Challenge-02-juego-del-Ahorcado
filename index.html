@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Recursos/logo-Alura.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@200&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+
+    <title>Juego del Ahorcado</title>
+</head>
+<body>
+    <header>
+        <a href="https://www.aluracursos.com/" target="_blank">
+            <img src="Recursos/logo-Alura.png" alt="Logo de Alura">
+        </a>
+    </header>
+    <main>
+        <!--Aquí va la parte de los botones de la página principal.-->
+        <div id="contenedor-botones">
+            <button id="jugar" class="boton">Iniciar Juego</button>
+            <button id="anhadir" class="boton">Añadir palabra</button>
+        </div>
+
+        <!--Aquí va la parte de añadir una palabra.-->
+        <div id="contenedor-dos" class="contenedor invisible">
+            <input type="text" id="palabra-nueva" class="caja-de-texto" placeholder="Ingresa aquí la palabra a añadir">
+            <div id="teclado-virtual" class="contenedor-letras">
+                <button class="letra-boton" onclick="anhadirLetra('A')">A</button>
+                <button class="letra-boton" onclick="anhadirLetra('B')">B</button>
+                <button class="letra-boton" onclick="anhadirLetra('C')">C</button>
+                <button class="letra-boton" onclick="anhadirLetra('D')">D</button>
+                <button class="letra-boton" onclick="anhadirLetra('E')">E</button>
+                <button class="letra-boton" onclick="anhadirLetra('F')">F</button>
+                <button class="letra-boton" onclick="anhadirLetra('G')">G</button>
+                <button class="letra-boton" onclick="anhadirLetra('H')">H</button>
+                <button class="letra-boton" onclick="anhadirLetra('I')">I</button>
+                <button class="letra-boton" onclick="anhadirLetra('J')">J</button>
+                <button class="letra-boton" onclick="anhadirLetra('K')">K</button>
+                <button class="letra-boton" onclick="anhadirLetra('L')">L</button>
+                <button class="letra-boton" onclick="anhadirLetra('M')">M</button>
+                <button class="letra-boton" onclick="anhadirLetra('N')">N</button>
+                <button class="letra-boton" onclick="anhadirLetra('Ñ')">Ñ</button>
+                <button class="letra-boton" onclick="anhadirLetra('O')">O</button>
+                <button class="letra-boton" onclick="anhadirLetra('P')">P</button>
+                <button class="letra-boton" onclick="anhadirLetra('Q')">Q</button>
+                <button class="letra-boton" onclick="anhadirLetra('R')">R</button>
+                <button class="letra-boton" onclick="anhadirLetra('S')">S</button>
+                <button class="letra-boton" onclick="anhadirLetra('T')">T</button>
+                <button class="letra-boton" onclick="anhadirLetra('U')">U</button>
+                <button class="letra-boton" onclick="anhadirLetra('V')">V</button>
+                <button class="letra-boton" onclick="anhadirLetra('W')">W</button>
+                <button class="letra-boton" onclick="anhadirLetra('X')">X</button>
+                <button class="letra-boton" onclick="anhadirLetra('Y')">Y</button>
+                <button class="letra-boton" onclick="anhadirLetra('Z')">Z</button>
+            </div>
+            <div id="contenedor-botones-nueva-palabra">
+                <p class="advertencia">
+                    &#x26A0; ¡Cuidado, máximo 8 letras!
+                </p>
+                <button id="anhadir-palabra" class="boton-dos">Guardar y empezar</button>
+                <button id="cancelar" class="boton-dos">Cancelar</button>
+            </div>
+        </div>
+
+        <!--Aquí va la parte del juego del ahorcado-->
+            <div class="invisible" id="contenedor-botones-tres">
+                <div id="area-para-letras-juego">
+                </div>
+                <div id="teclado-virtual" class="contenedor-letras">
+                    <button onclick="anhadirLetra('A');" class="letra-boton">A</button>
+                    <button onclick="anhadirLetra('B');" class="letra-boton">B</button>
+                    <button onclick="anhadirLetra('C');" class="letra-boton">C</button>
+                    <button onclick="anhadirLetra('D');" class="letra-boton">D</button>
+                    <button onclick="anhadirLetra('E');" class="letra-boton">E</button>
+                    <button onclick="anhadirLetra('F');" class="letra-boton">F</button>
+                    <button onclick="anhadirLetra('G');" class="letra-boton">G</button>
+                    <button onclick="anhadirLetra('H');" class="letra-boton">H</button>
+                    <button onclick="anhadirLetra('I');" class="letra-boton">I</button>
+                    <button onclick="anhadirLetra('J');" class="letra-boton">J</button>
+                    <button onclick="anhadirLetra('K');" class="letra-boton">K</button>
+                    <button onclick="anhadirLetra('L');" class="letra-boton">L</button>
+                    <button onclick="anhadirLetra('M');" class="letra-boton">M</button>
+                    <button onclick="anhadirLetra('N');" class="letra-boton">N</button>
+                    <button onclick="anhadirLetra('Ñ');" class="letra-boton">Ñ</button>
+                    <button onclick="anhadirLetra('O');" class="letra-boton">O</button>
+                    <button onclick="anhadirLetra('P');" class="letra-boton">P</button>
+                    <button onclick="anhadirLetra('Q');" class="letra-boton">Q</button>
+                    <button onclick="anhadirLetra('R');" class="letra-boton">R</button>
+                    <button onclick="anhadirLetra('S');" class="letra-boton">S</button>
+                    <button onclick="anhadirLetra('T');" class="letra-boton">T</button>
+                    <button onclick="anhadirLetra('U');" class="letra-boton">U</button>
+                    <button onclick="anhadirLetra('V');" class="letra-boton">V</button>
+                    <button onclick="anhadirLetra('W');" class="letra-boton">W</button>
+                    <button onclick="anhadirLetra('X');" class="letra-boton">X</button>
+                    <button onclick="anhadirLetra('Y');" class="letra-boton">Y</button>
+                    <button onclick="anhadirLetra('Z');" class="letra-boton">Z</button>
+                </div>
+                <div class="espacio-botones-tres">
+                    <button id="nuevo-juego" class="boton-tres">Nuevo juego</button>
+                    <button id="desistir" class="boton-tres">Desistir</button>
+                </div>
+            </div>
+        <div>
+
+        </div>
+    </main>
+    <footer>
+        <!--De ser posible, añadir un pie de página con LinkedIn y GitHub, tarea semifinal-->
+    </footer>
+    <script src="JavaScript/logica.js"></script>
+</body>
+</html>
+
+<!--Referencia para paleta de colores: https://www.w3schools.com/colors/tryit.asp?filename=trycolors_palettes2-->

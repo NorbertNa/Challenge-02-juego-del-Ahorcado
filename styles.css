@@ -1,0 +1,278 @@
+html
+{
+    background-color: #deeaee;
+}
+header
+{
+    margin-left: 5%;
+    margin-top: 2.5%;
+}
+/* Estas c¿proppiedades corresponden a la página principal. */
+#contenedor-botones
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.boton
+{
+    display: block;
+    width: 320px;
+    height: 100px;
+    border-radius: 30px;
+    border-width: 1px;
+    transition: 0.5s;
+    margin: 20px;
+    font-size: 26px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.boton:active
+{
+    transform: scale(1.1);
+}
+#anhadir
+{
+    color: #c94c4c;
+    border-color: #c94c4c;
+    background-color: #eea29a;
+}
+#jugar
+{
+    background-color: #c94c4c;
+    color: #eea29a;
+    border-color: #eea29a;
+}
+#anhadir:active
+{
+    background-color: #c94c4c;
+    color: #eea29a;
+    border-color: #eea29a;
+}
+#jugar:active
+{
+    color: #c94c4c;
+    border-color: #c94c4c;
+    background-color: #eea29a;
+}
+
+/* Esta propiedad se añade a los elementos que no se quieran ver. */
+.invisible
+{
+    display: none;
+}
+.texto-invisible
+{
+    color: transparent;
+}
+/* Esta parte corresponde a la parte de añadir palabra. */
+.boton-dos
+{
+    display: inline-block;
+    height: 80px;
+    width: 320px;
+    transition: 0.5s;
+    font-size: 26px;
+    font-family: 'Roboto Condensed', sans-serif;
+    border-radius: 24px;
+    border-width: 1px;
+}
+.boton-dos:active
+{
+    transform: scale(1.1);
+}
+.caja-de-texto
+{
+    display: block;
+    border: none;
+    background-color: transparent;
+    font-size: 26px;
+    font-family: 'Roboto Condensed', sans-serif;
+    width: 720px;
+    height: 32px;
+    text-align: justify;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.caja-de-texto:focus
+{
+    outline: none;
+}
+#anhadir-palabra
+{
+    color: #c94c4c;
+    border-color: #c94c4c;
+    background-color: #eea29a;
+}
+#anhadir-palabra:active
+{
+    background-color: #c94c4c;
+    color: #eea29a;
+    border-color: #eea29a;
+}
+#cancelar
+{
+    background-color: #c94c4c;
+    color: #eea29a;
+    border-color: #eea29a;
+}
+#cancelar:active
+{
+    color: #c94c4c;
+    border-color: #c94c4c;
+    background-color: #eea29a;
+}
+.contenedor
+{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.advertencia
+{
+    font-size: 18px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #c94c4c;
+}
+.diferencial-lupa
+{
+    display: block;
+    margin: 0 auto;
+}
+.letra-boton
+{
+    width: 32px;
+    height: 32px;
+    text-align: center;                  
+    font-size: 18px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #eea29a;
+    background-color: #c94c4c;
+    border-color: #eea29a;
+    border-radius: 8px;
+    transition: 0.5s;
+}
+.letra-boton:active
+{
+    color: #c94c4c;
+    background-color: #eea29a;
+    border-color: #c94c4c;
+    transform: scale(1.1);
+}
+.letra-boton:focus
+{
+    outline: none;
+}
+.contenedor-letras
+{
+    display: grid;
+    grid: auto / auto auto auto auto auto auto auto auto auto;
+    grid-gap: 20px;
+}
+#contenedor-botones-tres
+{
+    width: 507px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+/* Esta parte del css corresponde a la parte del juego. */
+.area-de-juego
+{
+    font-size: 18px;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin-bottom: 50px;
+    height: 32px;
+    width: 32px;
+}
+span
+{
+    display: flex;
+    height: 32px;
+    width: 32px;
+    border-radius: 2px;
+    border-bottom: 5px solid #c94c4c;
+}
+#area-para-letras-juego
+{
+    display: grid;
+    grid-auto-flow: column;
+    justify-items: center;
+}
+.area-1
+{
+    grid: auto / auto;
+}
+.area-2
+{
+    grid: auto / auto auto;
+}
+.area-3
+{
+    grid: auto / auto auto auto;
+}
+.area-4
+{
+    grid: auto / auto auto auto auto;
+}
+.area-5
+{
+    grid: auto / auto auto auto auto auto;
+}
+.area-6
+{
+    grid: auto / auto auto auto auto auto auto;
+}
+.area-7
+{
+    grid: auto / auto auto auto auto auto auto auto;
+}
+.area-8
+{
+    grid: auto / auto auto auto auto auto auto auto auto;
+}
+.boton-tres
+{
+    transition: 0.5s;
+    width: 160px;
+    height: 60px;
+    border-radius: 30px;
+    border-width: 1px;
+    margin: 0 auto;
+    font-size: 18px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.boton-tres:active
+{
+    transform: scale(1.1);
+}
+#nuevo-juego
+{
+    color: #eea29a;
+    background-color: #c94c4c;
+    border-color: #eea29a;
+}
+#nuevo-juego:active
+{
+    color: #c94c4c;
+    background-color: #eea29a;
+    border-color: #c94c4c;
+}
+#desistir:active
+{
+    color: #eea29a;
+    background-color: #c94c4c;
+    border-color: #eea29a;
+}
+#desistir
+{
+    color: #c94c4c;
+    background-color: #eea29a;
+    border-color: #c94c4c;
+}
+.espacio-botones-tres
+{
+    margin: 20px auto;
+    width: fit-content;
+}
