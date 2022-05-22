@@ -1,6 +1,9 @@
 //Variables iniciales de control, array de inicio para las palabras de la matríz y una palabra seleccionada de manera aleatoria.
 var listaPalabras = ["HTML", "ALURA", "PROGRAMA", "CSS", "CURSO", "ORACLE", "ONE", "ESTUDIO", "PALABRA", "SECCION", "SPAN", "INPUT", "VARIABLE", "BORDE", "RADIO", "SCRIPT"];
 var palabraNuevaArray = "";
+var numIntentos = 0;
+var estadoLetra = "";
+var letrasIngresadas = "";
 
 //Variables para extraer elementos del HTML para añadir o remover elementos.
 var textoFluidoJugar = document.getElementById("contenedor-botones");
@@ -74,33 +77,72 @@ function iniciarJuego()
     globalThis.palabra = listaPalabras[Math.floor(Math.random() * listaPalabras.length)];
 
     //Reset del elemento en el input para palabra nueva.
+    document.getElementById('espacio-letras-incorrectas').textContent = "";
     document.getElementById("palabra-nueva").value = "";
     palabraNuevaArray = "";
+    letrasIngresadas = "";
+    document.querySelector('.cuadro-dialogo').textContent = "Intentos: " + letrasIngresadas;
     console.log(palabraNuevaArray);
     dibujarAreaPalabraJuego(palabra);
-    verificarLetra();
+    addEventListener('keypress', logKey);
 }
 
-function verificarLetra()
+function verificarLetra(letraAVerificar)
 {
     //Básicamente, si la letra que se presione corresponde a una letra y no a un caracter especial.
-    document.addEventListener('keypress', logKey);
+        //document.addEventListener('keypress', logKey);
+    var estadoLetra;
+    estadoLetra = "incorrecto";
+    var controlLetras = 0;
+
+    console.log(letrasIngresadas.includes(letraAVerificar));
+
+    for (var i = 0; i < palabra.length; i++)
+    {
+        if (palabra[i] == letraAVerificar)
+        //Aquí muestra la letra correcta.
+        {
+            document.getElementsByTagName("span")[i].classList.remove("texto-invisible");
+            estadoLetra = "correcto";
+        }
+    }
+        //Aquí muestra la letra incorrecta.
+    if (estadoLetra == "incorrecto" && letrasIngresadas.includes(letraAVerificar) == false)
+    {
+        mostrarLetraIncorrecta(letraAVerificar);
+        letrasIngresadas = letrasIngresadas + letraAVerificar;
+        controlLetras = 1;
+    }
+    numIntentos = letrasIngresadas.length;
+    document.querySelector('.cuadro-dialogo').textContent = "Intentos: " + numIntentos;
+    console.log(numIntentos);
+    console.log(letrasIngresadas);
+    console.log(letrasIngresadas.includes(letraAVerificar));
+    mensajeGanador(palabra);
 }
 
 function logKey(letter)
 {
     //Esta función guarda en una variable la tecla presionada.
-    var letraPresionada = `${letter.key}`;
+    var letraPresionada = `${letter.key}`.toUpperCase();
     console.log(letraPresionada);
+    verificarLetra(letraPresionada);
+}
+
+function logKeySecond(letter)
+{
+    //Esta función guarda en una variable la tecla presionada.
+    var letraPresionada = letter.toUpperCase();
+    console.log(letraPresionada);
+    verificarLetra(letraPresionada);
 }
 
 function anhadirLetra(letra)
 {
     //En pocas palabras, si la corresponde al índice se añade en el espacio correspondiente.
-    palabraNuevaArray = palabraNuevaArray + letra;
-    console.log(palabraNuevaArray);
-    console.log(letra);
+    palabraNuevaArray = document.getElementById("palabra-nueva").value + letra;
     document.getElementById("palabra-nueva").value = palabraNuevaArray;
+    logKeySecond(letra);
 }
 
 function dibujarAreaPalabraJuego(palabra)
@@ -125,19 +167,29 @@ function eliminarAreaDeJuego(palabra)
     }
 }
 
-function mostrarLetraCorrecta()
-{
-    //Esta función muestra, o hace visible la letra correcta una vez esta sea presionada tanto en el teclado físico como en el virtual.
-}
-
-function mostrarLetraIncorrecta()
+function mostrarLetraIncorrecta(letraIncorrecta)
 {
     //Si no correpsonde la letra, se muestra debajo del espacio para la palabra.
+    console.log(letraIncorrecta);
+    var espacioLetrasIncorrectas = document.getElementById('espacio-letras-incorrectas');
+    espacioLetrasIncorrectas.textContent = espacioLetrasIncorrectas.textContent + letraIncorrecta;
 }
 
-function mensajeGanador()
+function mensajeGanador(palabra)
 {
     //En el momento que se gana, mostrar un mensaje.
+    var j = 0;
+    for (var i = 0; i < palabra.length; i++)
+    {
+        if(document.getElementsByTagName("span")[i].classList.value.includes('texto-invisible') == false)
+        {
+            j++;
+        }
+        if(j == palabra.length)
+        {
+            alert("¡Felicidades, has ganado!");
+        }
+    }
 }
 
 function construirAhogado()
@@ -152,6 +204,9 @@ function nuevoJuego()
     textoFluidoPalabra.classList.add("invisible");
     tecladoInvisibilizar.classList.add("invisible");
     textoFluidoAhorcado.classList.add("invisible");
+    document.getElementById("palabra-nueva").value = "";
+    letrasIngresadas = "";
+    document.querySelector('.cuadro-dialogo').textContent = "Intentos: " + letrasIngresadas;
 }
 
 function pantallaAnhadir()

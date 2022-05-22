@@ -64,6 +64,7 @@ header
 .texto-invisible
 {
     color: transparent;
+    pointer-events: none;
 }
 /* Esta parte corresponde a la parte de añadir palabra. */
 .boton-dos
@@ -199,38 +200,7 @@ span
     display: grid;
     grid-auto-flow: column;
     justify-items: center;
-}
-.area-1
-{
-    grid: auto / auto;
-}
-.area-2
-{
-    grid: auto / auto auto;
-}
-.area-3
-{
-    grid: auto / auto auto auto;
-}
-.area-4
-{
-    grid: auto / auto auto auto auto;
-}
-.area-5
-{
-    grid: auto / auto auto auto auto auto;
-}
-.area-6
-{
-    grid: auto / auto auto auto auto auto auto;
-}
-.area-7
-{
-    grid: auto / auto auto auto auto auto auto auto;
-}
-.area-8
-{
-    grid: auto / auto auto auto auto auto auto auto auto;
+    text-align: center;
 }
 .boton-tres
 {
@@ -275,4 +245,22 @@ span
 {
     margin: 20px auto;
     width: fit-content;
+}
+.cuadro-dialogo
+{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+span
+{
+    text-align: center;
+}
+.letras-incorrectas
+{
+    border: none;
+    display: inline-block;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 18px;
+    margin: 20px;
 }
