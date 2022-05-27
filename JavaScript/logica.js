@@ -90,7 +90,6 @@ function iniciarJuego()
     palabraNuevaArray = "";
     letrasIngresadas = "";
     document.querySelector('.cuadro-dialogo').textContent = "Intentos: " + letrasIngresadas;
-    console.log(palabraNuevaArray);
     dibujarAreaPalabraJuego(palabra);
     addEventListener('keypress', logKey);
 }
@@ -102,8 +101,6 @@ function verificarLetra(letraAVerificar)
     var estadoLetra;
     estadoLetra = "incorrecto";
     var controlLetras = 0;
-
-    console.log(letrasIngresadas.includes(letraAVerificar));
 
     for (var i = 0; i < palabra.length; i++)
     {
@@ -123,9 +120,6 @@ function verificarLetra(letraAVerificar)
     }
     numIntentos = letrasIngresadas.length;
     document.querySelector('.cuadro-dialogo').textContent = "Intentos: " + numIntentos;
-    console.log(numIntentos);
-    console.log(letrasIngresadas);
-    console.log(letrasIngresadas.includes(letraAVerificar));
     mensajeGanador(palabra);
 }
 
@@ -133,7 +127,6 @@ function logKey(letter)
 {
     //Esta función guarda en una variable la tecla presionada.
     var letraPresionada = `${letter.key}`.toUpperCase();
-    console.log(letraPresionada);
     verificarLetra(letraPresionada);
     construirAhogado();
 }
@@ -142,7 +135,6 @@ function logKeySecond(letter)
 {
     //Esta función guarda en una variable la tecla presionada.
     var letraPresionada = letter.toUpperCase();
-    console.log(letraPresionada);
     verificarLetra(letraPresionada);
     construirAhogado();
 }
@@ -180,7 +172,6 @@ function eliminarAreaDeJuego(palabra)
 function mostrarLetraIncorrecta(letraIncorrecta)
 {
     //Si no correpsonde la letra, se muestra debajo del espacio para la palabra.
-    console.log(letraIncorrecta);
     var espacioLetrasIncorrectas = document.getElementById('espacio-letras-incorrectas');
     espacioLetrasIncorrectas.textContent = espacioLetrasIncorrectas.textContent + letraIncorrecta;
 }
@@ -207,6 +198,10 @@ function construirAhogado()
     //Aquí se dibuja el layout del ahorcado de manera procedural.
     var espacioAhogado = document.querySelector('.contenedor-imagenes-ahorcado');
     espacioAhogado.children[numIntentos - 1].classList.remove("invisible");
+    if(numIntentos == 10)
+    {
+        perdiste();
+    }
 }
 
 function nuevoJuego()
@@ -233,7 +228,6 @@ function pantallaAnhadir()
 function anhadirPalabraDiccionario(palabraNueva)
 {
     //Función que añade a listaPalabras una palabra de máximo ocho caracteres.
-    console.log(palabraNueva);
     if (palabraNueva.length <= 8 && palabraNueva.length != 0)
     {
         listaPalabras.push(palabraNueva);
@@ -261,6 +255,10 @@ function rendirse()
 function perdiste()
 {
     alert("¡Perdiste, es una lástima! La palabra correcta era: '" + palabra + "'");
+    for (var i = 0; i < 10; i++)
+    {
+        document.querySelector(".contenedor-imagenes-ahorcado").children[i].classList.add("invisible");
+    }
     nuevoJuego();
 }
 
