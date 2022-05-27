@@ -7,7 +7,7 @@ header
     margin-left: 5%;
     margin-top: 2.5%;
 }
-/* Estas c¿proppiedades corresponden a la página principal. */
+/* Estas proppiedades corresponden a la página principal. */
 #contenedor-botones
 {
     position: absolute;
@@ -263,4 +263,16 @@ span
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 18px;
     margin: 20px;
+}
+.ahorcado
+{
+    position: absolute;
+    top: 72px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.contenedor-imagenes-ahorcado
+{
+    height: 360px;
+    margin-bottom: 30px;
 }

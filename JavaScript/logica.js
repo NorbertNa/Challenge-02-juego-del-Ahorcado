@@ -44,6 +44,10 @@ cancelar.addEventListener('click', function()
 });
 jugarDeNuevo.addEventListener('click', function()
 {
+    for (var i = 0; i < 10; i++)
+    {
+        document.querySelector(".contenedor-imagenes-ahorcado").children[i].classList.add("invisible");
+    }
     document.getElementById("palabra-nueva").value = "";
     if (palabra.length != 0)
     {
@@ -77,6 +81,10 @@ function iniciarJuego()
     globalThis.palabra = listaPalabras[Math.floor(Math.random() * listaPalabras.length)];
 
     //Reset del elemento en el input para palabra nueva.
+    for (var i = 0; i < 10; i++)
+    {
+        document.querySelector(".contenedor-imagenes-ahorcado").children[i].classList.add("invisible");
+    }
     document.getElementById('espacio-letras-incorrectas').textContent = "";
     document.getElementById("palabra-nueva").value = "";
     palabraNuevaArray = "";
@@ -127,6 +135,7 @@ function logKey(letter)
     var letraPresionada = `${letter.key}`.toUpperCase();
     console.log(letraPresionada);
     verificarLetra(letraPresionada);
+    construirAhogado();
 }
 
 function logKeySecond(letter)
@@ -135,6 +144,7 @@ function logKeySecond(letter)
     var letraPresionada = letter.toUpperCase();
     console.log(letraPresionada);
     verificarLetra(letraPresionada);
+    construirAhogado();
 }
 
 function anhadirLetra(letra)
@@ -195,6 +205,8 @@ function mensajeGanador(palabra)
 function construirAhogado()
 {
     //Aquí se dibuja el layout del ahorcado de manera procedural.
+    var espacioAhogado = document.querySelector('.contenedor-imagenes-ahorcado');
+    espacioAhogado.children[numIntentos - 1].classList.remove("invisible");
 }
 
 function nuevoJuego()
@@ -238,11 +250,6 @@ function anhadirPalabraDiccionario(palabraNueva)
         alert("¡La palabra no puede ser añadida, máximo debe contener 8 caracteres!");
         return false;
     }
-}
-
-function validarPalabra()
-{
-    //Valida la palabra a añadir en el diccionario, comprobando que su longitud sea igual o menos a ocvho caracteres y sean letras de la 'a' a la 'z'.
 }
 
 function rendirse()
